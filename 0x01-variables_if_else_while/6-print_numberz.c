@@ -4,7 +4,7 @@
  * main -Entry point
  *
  * Description: print 0-9 using putchar.
- * 		while using int variable
+ *              while using int variable
  *
  * Return: 0 (success)
 */
@@ -22,4 +22,3 @@ int main(void)
 	putcher('\n');
 
 	return (0);
-}
