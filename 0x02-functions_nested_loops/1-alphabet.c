@@ -1,10 +1,10 @@
-#include "main.h"
+#include"main.h"
 
 /**
  * print_alphabet - using _putchar function to print the alphabet from a to z
 */
 
-void print_alphabet(void);
+void print_alphabet(void)
 {
 	int ch;
 
