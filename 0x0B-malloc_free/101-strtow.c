@@ -1,29 +1,46 @@
-#include <stdlib.h>
 #include "main.h"
+#include <stdlib.h>
+
+void util(char **, char *);
+void create_word(char **, char *, int, int, int);
 
 /**
- * count_word - helper function to count the number of words in a string
- * @s: string to evaluate
+ * strtow - splits a string into words.
+ * @str: the string
  *
- * Return: number of words
+ * Return: returns a pointer to an array of strings (words)
  */
-int count_word(char *s)
+char **strtow(char *str)
 {
-	int flag, c, w;
+	int i, flag, len;
+	char **words;
 
-	flag = 0;
-	w = 0;
+	if (str == NULL || str[0] == '\0' || (str[0] == ' ' && str[1] == '\0'))
+		return (NULL);
 
-	for (c = 0; s[c] != '\0'; c++)
+	i = flag = len = 0;
+	while (str[i])
 	{
-		if (s[c] == ' ')
-			flag = 0;
-		else if (flag == 0)
-		{
+		if (flag == 0 && str[i] != ' ')
 			flag = 1;
-			w++;
+		if (i > 0 && str[i] == ' ' && str[i - 1] != ' ')
+		{
+			flag = 0;
+			len++;
 		}
+		i++;
 	}
 
-	return (w);
+	len += flag == 1 ? 1 : 0;
+	if (len == 0)
+		return (NULL);
+
+	words = (char **)malloc(sizeof(char *) * (len + 1));
+	if (words == NULL)
+		return (NULL);
+
+	util(words, str);
+	words[len] = NULL;
+	return (words);
 }
+
