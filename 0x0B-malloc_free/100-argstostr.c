@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
 
 /**
  * _strlen - find length of string
@@ -11,7 +10,7 @@ int _strlen(char *s)
 {
 	int size = 0;
 
-	for(; s[size] != '\0'; size++)
+	for (; s[size] != '\0'; size++)
 	;
 	return (size);
 }
@@ -25,8 +24,8 @@ int _strlen(char *s)
  */
 char *argstostr(int ac, char **av)
 {
-	char *s;
 	int i = 0, nc = 0, j = 0, cmpt = 0;
+	char *s;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
@@ -41,6 +40,7 @@ char *argstostr(int ac, char **av)
 	{
 		for (j = 0; av[i][j] != '\0'; j++, cmpt++)
 			s[cmpt] = av[i][j];
+
 		s[cmpt] = '\n';
 		cmpt++;
 	}
