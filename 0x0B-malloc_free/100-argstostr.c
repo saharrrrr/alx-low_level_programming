@@ -6,6 +6,7 @@
  *
  * Return: int
 */
+
 int _strlen(char *s)
 {
 	int size = 0;
@@ -16,12 +17,13 @@ int _strlen(char *s)
 }
 
 /**
- * argstostr - concatenates all the arguments of your program.
- * @ac: arguments count
- * @av: arguments vector
+ * argstostr - description
+ * @ac: int
+ * @av: arguments
  *
- * Return: a pointer to a new string, or NULL if it fails
+ * Return: string
  */
+
 char *argstostr(int ac, char **av)
 {
 	int i = 0, nc = 0, j = 0, cmpt = 0;
@@ -32,6 +34,7 @@ char *argstostr(int ac, char **av)
 
 	for (; i < ac; i++, ac++)
 		nc += _strlen(av[i]);
+
 	s = malloc(sizeof(char) * nc + 1);
 	if (s == 0)
 		return (NULL);
